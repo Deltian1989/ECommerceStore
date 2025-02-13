@@ -1,5 +1,6 @@
 using ECommerceStore.Web;
 using ECommerceStore.Web.Components;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +28,13 @@ app.UseAntiforgery();
 app.UseOutputCache();
 
 app.MapStaticAssets();
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(
+        Path.Combine(Directory.GetCurrentDirectory(), "node_modules")),
+    RequestPath = "/lib"
+});
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
