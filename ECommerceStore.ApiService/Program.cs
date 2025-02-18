@@ -1,13 +1,34 @@
+using ECommerceStore.Core.DTOS;
+using ECommerceStore.Core.Entities;
+using ECommerceStore.Core.Interfaces;
+using ECommerceStore.Infrastructure.Persistence;
+using ECommerceStore.Infrastructure.Repositories;
+using ECommerceStore.Infrastructure.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add service defaults & Aspire client integrations.
 builder.AddServiceDefaults();
+
+var connextionString = builder.Configuration.GetConnectionString("ECommerceConnectionString");
+
+builder.Services.AddSqlServer<ApplicationDbContext>(connextionString);
+
+// Add services to the container
+builder.Services.AddControllers(); // Enables controllers and API endpoints
 
 // Add services to the container.
 builder.Services.AddProblemDetails();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+builder.Services.AddAutoMapper(config =>
+    config.CreateMap<Product, FeaturedProductDto>()
+);
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
@@ -19,6 +40,8 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.MapDefaultEndpoints();
+app.UseAuthorization();
+
+app.MapControllers();
 
 app.Run();
