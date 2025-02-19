@@ -46,6 +46,26 @@ h1:focus {
         content: "An error has occurred."
     }
 
+.product-card {
+    width: 200px; /* Fixed width for each product card */
+    margin: 10px; /* Add spacing between cards */
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    height: 100%; /* Ensures all cards have equal height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-image {
+    height: 200px; /* Fixed height for images */
+    object-fit: contain; /* Ensures images fill the area without distortion */
+    width: 100%;
+}
+
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
     color: var(--bs-secondary-color);
     text-align: end;
