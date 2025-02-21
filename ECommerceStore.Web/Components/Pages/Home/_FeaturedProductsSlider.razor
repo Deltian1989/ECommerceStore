@@ -2,12 +2,46 @@
 @using System.Globalization
 
 @inject HttpClient Http
+@inject IJSRuntime JSRuntime
 @inject IConfiguration Configuration
+
+@if (isLoading)
+{
+    <p>Loading featured products...</p>
+}
+else if (featuredProducts.Count == 0)
+{
+    <p>No featured products available.</p>
+}
+else
+{
+    <div class="swiper-container featured-products-slider">
+        <div class="swiper-wrapper">
+            @foreach (var product in featuredProducts)
+            {
+                <div class="swiper-slide product-card" @key="product.Id">
+                    <div class="card">
+                        <img src="@product.ImagePath" class="card-img-top product-image" alt="@product.Name">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">@product.Name</h5>
+                            <p class="card-text">Price: @product.UnitPrice.ToString("C")</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <!-- Swiper navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <!-- Swiper pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+}
 
 @code {
     private List<ProductModel> featuredProducts = new();
     private bool isLoading = true;
-    private int itemsPerSlide = 8;
+    private bool isInitialized = false;
     private string? apiBaseUrl;
 
     protected override async Task OnInitializedAsync()
@@ -23,6 +57,8 @@
         try
         {
             featuredProducts = await Http.GetFromJsonAsync<List<ProductModel>>($"{apiBaseUrl}/api/featuredProducts");
+
+            StateHasChanged();
         }
         catch (Exception ex)
         {
@@ -34,6 +70,15 @@
         }
     }
 
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender && !isInitialized)
+        {
+            isInitialized = true; // Prevent multiple calls
+            await JSRuntime.InvokeVoidAsync("App.Pages.HomePage.init");
+        }
+    }
+
     public class ProductModel
     {
         public int Id { get; set; }
@@ -41,48 +86,5 @@
         public string ImagePath { get; set; }
         public decimal UnitPrice { get; set; }
     }
-}
-
-@if (isLoading)
-{
-    <p>Loading featured products...</p>
-}
-else if (featuredProducts.Count == 0)
-{
-    <p>No featured products available.</p>
-}
-else
-{
-    <div id="featuredProductsCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            @for (int i = 0; i < featuredProducts.Count; i += itemsPerSlide)
-            {
-                <div class="carousel-item @(i == 0 ? "active" : "")">
-                    <div class="d-flex justify-content-center flex-wrap">
-                        @foreach (var product in featuredProducts.Skip(i).Take(itemsPerSlide))
-                        {
-                            <div class="product-card" @key="product.Id">
-                                <div class="card">
-                                    <img src="@product.ImagePath" class="card-img-top product-image" alt="@product.Name">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title">@product.Name</h5>
-                                        <p class="card-text">Price: @product.UnitPrice.ToString("C", CultureInfo.GetCultureInfo("pl-PL"))</p>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </div>
-            }
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#featuredProductsCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#featuredProductsCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
 }
 
