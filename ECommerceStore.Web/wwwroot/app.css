@@ -46,16 +46,21 @@ h1:focus {
         content: "An error has occurred."
     }
 
-swiper {
+.card {
+    width:200px;
+    height: 300px;
+}
+
+.swiper {
     width: 100%;
     height: 100%;
 }
 
-.swiper-slide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.featured-products-slider {
+    overflow: hidden;
+}
+
+.swiper-container {
     position: relative;
 }
 
@@ -63,42 +68,6 @@ swiper {
         display: block;
         width: 100%;
     }
-
-@media only screen and (min-width: 769px) {
-    .swiper-slide:first-child {
-        transition: transform 100ms;
-    }
-
-        .swiper-slide:first-child img {
-            transition: box-shadow 500ms;
-        }
-
-    .swiper-slide.swiper-slide-active:first-child {
-        transform: translateX(50%);
-        z-index: 2;
-    }
-
-        .swiper-slide.swiper-slide-active:first-child img {
-            box-shadow: 0px 32px 80px rgba(0, 0, 0, 0.35);
-        }
-
-    .swiper-slide:nth-child(2) {
-        transition: transform 100ms;
-    }
-
-    .swiper-slide.swiper-slide-next:nth-child(2) {
-        transform: translateX(55%);
-        z-index: 1;
-    }
-
-    .swiper[dir="rtl"] .swiper-slide.swiper-slide-active:first-child {
-        transform: translateX(-50%);
-    }
-
-    .swiper[dir="rtl"] .swiper-slide.swiper-slide-next:nth-child(2) {
-        transform: translateX(-55%);
-    }
-}
 
 .product-image {
     height: 200px; /* Fixed height for images */

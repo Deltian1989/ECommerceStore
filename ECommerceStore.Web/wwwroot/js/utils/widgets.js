@@ -6,22 +6,12 @@ App.Utils.Widgets.createProductSwiper = function (productSwiperId) {
     }
 
     this.productSwiper = new Swiper('.' + productSwiperId, {
-        slidesPerView: 4, // Number of visible slides
-        spaceBetween: 20, // Space between slides
-        loop: true, // Enable infinite scrolling
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true
-        },
+        slidesPerView: 7,
+        freeMode: true,
+        spaceBetween: 10,
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
         },
-        breakpoints: {
-            320: { slidesPerView: 1 },
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-            1280: { slidesPerView: 4 }
-        }
     });
 }

@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using ECommerceStore.Core.Interfaces;
+﻿using ECommerceStore.Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerceStore.ApiService.Controllers
