@@ -13,7 +13,7 @@ a, .btn-link {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .content {
@@ -46,9 +46,21 @@ h1:focus {
         content: "An error has occurred."
     }
 
-.card {
-    width:200px;
+.featured-products-panel {
+    min-height: 180px;
+    padding: 20px;
+}
+
+    .featured-products-panel h2 {
+        color: var(--bs-card-title-color);
+    }
+
+.product-card {
+    display: block;
+    width: 100%;
     height: 300px;
+    text-decoration: none;
+    color: var(--bs-card-title-color);
 }
 
 .swiper {
@@ -64,15 +76,21 @@ h1:focus {
     position: relative;
 }
 
-    .swiper-slide img {
-        display: block;
-        width: 100%;
-    }
+.swiper-slide {
+    border: 1px solid var(--bs-border-color-translucent);
+    border-radius: 15px;
+}
+
+.product-card {
+    width: 80%;
+    margin: auto;
+}
 
 .product-image {
-    height: 200px; /* Fixed height for images */
+    height: 180px; /* Fixed height for images */
     object-fit: contain; /* Ensures images fill the area without distortion */
     width: 100%;
+    display: block;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {

@@ -5,38 +5,48 @@
 @inject IJSRuntime JSRuntime
 @inject IConfiguration Configuration
 
-@if (isLoading)
-{
-    <p>Loading featured products...</p>
-}
-else if (featuredProducts.Count == 0)
-{
-    <p>No featured products available.</p>
-}
-else
-{
-    <div class="swiper-container featured-products-slider">
-        <div class="swiper-wrapper">
-            @foreach (var product in featuredProducts)
-            {
-                <div class="swiper-slide product-card" @key="product.Id">
-                    <div class="card">
-                        <img src="@product.ImagePath" class="card-img-top product-image" alt="@product.Name">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">@product.Name</h5>
-                            <p class="card-text">Price: @product.UnitPrice.ToString("C")</p>
-                        </div>
-                    </div>
-                </div>
-            }
+<div class="featured-products-panel bg-light">
+    @if (isLoading)
+    {
+        <h2>Loading products...</h2>
+        <br />
+        <br />
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
         </div>
-        <!-- Swiper navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-        <!-- Swiper pagination -->
-        <div class="swiper-pagination"></div>
-    </div>
-}
+    }
+    else if (featuredProducts.Count == 0)
+    {
+        <p>No featured products available.</p>
+    }
+    else
+    {
+
+        <h2>Featured products</h2>
+        <br />
+        <div class="swiper-container featured-products-slider">
+            <div class="swiper-wrapper">
+                @foreach (var product in featuredProducts)
+                {
+                    <div class="swiper-slide" @key="product.Id">
+                        <a href="/products?productId=@(product.Id)" class="product-card">
+                            <img src="@product.ImagePath" class="card-img-top product-image" alt="@product.Name">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">@product.Name</h5>
+                                <p class="card-text">Price: @product.UnitPrice.ToString("C")</p>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+            <!-- Swiper navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <!-- Swiper pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    }
+</div>
 
 @code {
     private List<ProductModel> featuredProducts = new();

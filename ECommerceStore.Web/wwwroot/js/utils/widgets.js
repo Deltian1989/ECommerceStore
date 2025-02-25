@@ -6,7 +6,7 @@ App.Utils.Widgets.createProductSwiper = function (productSwiperId) {
     }
 
     this.productSwiper = new Swiper('.' + productSwiperId, {
-        slidesPerView: 7,
+        slidesPerView: 9,
         freeMode: true,
         spaceBetween: 10,
         navigation: {
