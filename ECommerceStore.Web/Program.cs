@@ -43,9 +43,9 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/lib"
 });
 
-var supportedCultures = new[] { "en", "pl" };
+var supportedCultures = new[] { "en-US", "pl-PL" };
 var localizationOptions = new RequestLocalizationOptions()
-    .SetDefaultCulture(supportedCultures[0])
+    .SetDefaultCulture(supportedCultures[1])
     .AddSupportedCultures(supportedCultures)
     .AddSupportedUICultures(supportedCultures);
 

@@ -1,5 +1,5 @@
-﻿@page "/featured-products"
-@using System.Globalization
+﻿@using System.Globalization
+@inject IStringLocalizer<FeaturedProductsSlider> localizer
 
 @inject HttpClient httpClient
 @inject IJSRuntime JSRuntime
@@ -8,7 +8,8 @@
 <div class="featured-products-panel bg-light">
     @if (isLoading)
     {
-        <h2>Loading products...</h2>
+
+        <h2>@localizer["ProductsLoadingStatusLoadingProducts"]</h2>
         <br />
         <br />
         <div class="progress">
@@ -17,12 +18,12 @@
     }
     else if (featuredProducts.Count == 0)
     {
-        <p>No featured products available.</p>
+        <p>@localizer["ProductsLoadingStatusNoFeaturedProductsAvailable"]</p>
     }
     else
     {
 
-        <h2>Featured products</h2>
+        <h2>@localizer["ProductSliderTitleFeaturedProducts"]</h2>
         <br />
         <div class="swiper-container featured-products-slider">
             <div class="swiper-wrapper">
@@ -33,7 +34,7 @@
                             <img src="@product.ImagePath" class="card-img-top product-image" alt="@product.Name">
                             <div class="card-body text-center">
                                 <h5 class="card-title">@product.Name</h5>
-                                <p class="card-text">Price: @product.UnitPrice.ToString("C")</p>
+                                <p class="card-text">@string.Format(localizer["ProductCardCaptionPrice"].Value.Replace("{price}", product.UnitPrice.ToString("C")))</p>
                             </div>
                         </a>
                     </div>

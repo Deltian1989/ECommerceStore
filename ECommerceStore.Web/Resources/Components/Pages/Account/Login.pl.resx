@@ -117,28 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="NavbarDropdownAriaLabelLanguage" xml:space="preserve">
-    <value>NavbarDropdownLanguage</value>
+  <data name="LoginFormLabelPassword" xml:space="preserve">
+    <value>Hasło</value>
   </data>
-  <data name="NavbarLinkSignIn" xml:space="preserve">
-    <value>NavbarLinkSignIn</value>
+  <data name="LoginFormLabelRememberMe" xml:space="preserve">
+    <value>Zapamiętaj mnie</value>
   </data>
-  <data name="NavbarLinkTitleBasket" xml:space="preserve">
-    <value>NavbarLinkTitleBasket</value>
+  <data name="LoginFormLabelUsername" xml:space="preserve">
+    <value>Nazwa użytkownika</value>
   </data>
-  <data name="NavbarLinkTitleFavorites" xml:space="preserve">
-    <value>NavbarLinkTitleFavorites</value>
+  <data name="LoginFormSubmitButtonLogin" xml:space="preserve">
+    <value>Zaloguj się</value>
   </data>
-  <data name="NavbarLinkTitleNotifications" xml:space="preserve">
-    <value>NavbarLinkTitleNotifications</value>
-  </data>
-  <data name="SearchBarPlaceholderSearch" xml:space="preserve">
-    <value>SearchBarPlaceholderSearch</value>
-  </data>
-  <data name="SearchButtonAriaLabelSearch" xml:space="preserve">
-    <value>SearchButtonAriaLabelSearch</value>
-  </data>
-  <data name="SearchButtonTextSearch" xml:space="preserve">
-    <value>SearchButtonTextSearch</value>
+  <data name="LoginPageLinkBackToHomePage" xml:space="preserve">
+    <value>Wroć do strony głównej</value>
   </data>
 </root>
