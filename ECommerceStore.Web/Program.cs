@@ -1,5 +1,6 @@
 using ECommerceStore.Web;
 using ECommerceStore.Web.Components;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.FileProviders;
 using System.Globalization;
 
@@ -13,11 +14,11 @@ builder.AddRedisOutputCache("cache");
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-var culture = new CultureInfo("pl-PL");
-CultureInfo.DefaultThreadCurrentCulture = culture;
-CultureInfo.DefaultThreadCurrentUICulture = culture;
-
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+var cultures = builder.Configuration.GetSection("Cultures").GetChildren().ToDictionary(x => x.Key, x => x.Value);
+
+
 
 var app = builder.Build();
 
@@ -43,13 +44,7 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/lib"
 });
 
-var supportedCultures = new[] { "en-US", "pl-PL" };
-var localizationOptions = new RequestLocalizationOptions()
-    .SetDefaultCulture(supportedCultures[1])
-    .AddSupportedCultures(supportedCultures)
-    .AddSupportedUICultures(supportedCultures);
 
-app.UseRequestLocalization(localizationOptions);
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
