@@ -1,8 +1,5 @@
-using ECommerceStore.Web;
 using ECommerceStore.Web.Components;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.FileProviders;
-using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,10 +12,6 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddLocalization(options => options.ResourcesPath = "Resources");
-
-var cultures = builder.Configuration.GetSection("Cultures").GetChildren().ToDictionary(x => x.Key, x => x.Value);
-
-
 
 var app = builder.Build();
 
@@ -44,7 +37,15 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = "/lib"
 });
 
+var cultures = builder.Configuration.GetSection("Cultures").GetChildren().ToDictionary(x => x.Key, x => x.Value);
 
+var supportedCultures = cultures.Keys.ToArray();
+
+var localizationOptions = new RequestLocalizationOptions()
+    .AddSupportedCultures(supportedCultures)
+    .AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
 
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();

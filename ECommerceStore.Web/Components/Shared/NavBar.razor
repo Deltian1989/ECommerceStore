@@ -19,7 +19,7 @@
                 </form>
             </div>
             <ul class="navbar-nav">
-                
+                <SelectLanguageDropdownNavItem></SelectLanguageDropdownNavItem>
                 <li class="nav-item me-2">
                     <a class="nav-link" href="/favorites"><i class="fa-regular fa-lg fa-heart"></i><span class="d-lg-none ms-2">@localizer["NavbarLinkTitleFavorites"]</span></a>
                 </li>
@@ -29,23 +29,7 @@
                 <li class="nav-item me-2">
                     <a class="nav-link" href="/basket"><i class="fa fa-lg fa-basket-shopping"></i><span class="d-lg-none ms-2">@localizer["NavbarLinkTitleBasket"]</span></a>
                 </li>
-                <li class="nav-item dropdown" data-bs-theme="light">
-                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="javascript:void(0)" id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="@localizer["NavbarDropdownAriaLabelLanguage"]">
-                        <div class="language-flag-icon selected-language-icon @CurrentFlagCssClass"></div>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li>
-                            <button type="button" class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
-                                <div class="language-flag-icon language-flag-english-icon"></div> English
-                            </button>
-                        </li>
-                        <li>
-                            <button type="button" class="dropdown-item" data-bs-theme-value="dark" aria-pressed="true">
-                                <div class="language-flag-icon language-flag-polish-icon"></div> Polski
-                            </button>
-                        </li>
-                    </ul>
-                </li>
+                
                 <li class="nav-item">
                     <a class="nav-link" href="/login">@localizer["NavbarLinkSignIn"]</a>
                 </li>
@@ -55,41 +39,6 @@
 </nav>
 
 @code {
-    private string CurrentFlagCssClass { get; set; } = "language-flag-english-icon"; // Default flag
-
-    protected override async Task OnInitializedAsync()
-    {
-        // var lang = await JSRuntime.InvokeAsync<string>("getCookie", "lang");
-        // if (!string.IsNullOrEmpty(lang))
-        // {
-        //     SetLanguage(lang);
-        // }
-    }
-
-    private async Task OnLanguageChanged(ChangeEventArgs e)
-    {
-        var culture = e.Value.ToString();
-        
-        await JSRuntime.InvokeVoidAsync("setCookie", "lang", culture, 30);
-
-        SetLanguage(culture);
-        
-        navigationManager.NavigateTo(navigationManager.Uri, forceLoad: true);
-    }
-
-    private void SetLanguage(string lang)
-    {
-        switch (lang)
-        {
-            case "en":
-                CurrentFlagCssClass = "language-flag-english-icon";
-                break;
-            case "pl":
-                CurrentFlagCssClass = "language-flag-english-icon";
-                break;
-            default:
-                CurrentFlagCssClass = "language-flag-english-icon";
-                break;
-        }
-    }
+    
+    
 }

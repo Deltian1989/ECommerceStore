@@ -1,0 +1,71 @@
+﻿@inject NavigationManager navigationManager
+@inject IConfiguration configuration
+@inject IStringLocalizer<SelectLanguageDropdownNavItem> localizer
+
+<li class="nav-item dropdown" data-bs-theme="light">
+    <a class="nav-link dropdown-toggle d-flex align-items-center" href="javascript:void(0)" id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="@localizer["NavbarDropdownAriaLabelLanguage"]">
+        <div class="language-flag-icon selected-language-icon @CurrentFlagCssClass"></div>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end">
+        @if (cultures != null)
+        {
+            @foreach (var culture in cultures)
+            {
+                <li>
+                    <button type="button" class="dropdown-item" @onclick="e => RequestCultureChange(culture.Key)" data-bs-theme-value="light" aria-pressed="false">
+                        <div class="language-flag-icon @(culture.Key == "pl-PL" ? "language-flag-polish-icon" : "language-flag-english-icon")"></div> @culture.Value
+                    </button>
+                </li>
+            }
+
+        }
+    </ul>
+</li>
+
+@code {
+    private string CurrentFlagCssClass { get; set; } = "language-flag-english-icon";
+
+    private string selectedCulture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+    private Dictionary<string, string?> cultures;
+
+    protected override void OnInitialized()
+    {
+        cultures = configuration.GetSection("Cultures")
+        .GetChildren().ToDictionary(x => x.Key, x => x.Value);
+
+        SetLanguage(selectedCulture);
+    }
+
+    private void SetLanguage(string lang)
+    {
+        switch (lang)
+        {
+            case "en-US":
+                CurrentFlagCssClass = "language-flag-english-icon";
+                break;
+            case "pl-PL":
+                CurrentFlagCssClass = "language-flag-polish-icon";
+                break;
+            default:
+                CurrentFlagCssClass = "language-flag-english-icon";
+                break;
+        }
+    }
+
+    private void RequestCultureChange(string culture)
+    {
+        if (string.IsNullOrEmpty(culture))
+        {
+            return;
+        }
+
+        var uri = new Uri(navigationManager.Uri)
+        .GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+
+        var query = $"?culture={Uri.EscapeDataString(culture)}&" +
+            $"redirectUri={Uri.EscapeDataString(uri)}";
+
+        navigationManager.NavigateTo("/Culture/SetCulture" + query,
+            forceLoad: true);
+    }
+}
