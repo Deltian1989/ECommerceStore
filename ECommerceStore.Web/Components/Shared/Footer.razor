@@ -1,11 +1,11 @@
 ﻿@inject IStringLocalizer<Footer> localizer
 
-<footer class="bg-primary text-white py-3 mt-5">
+<footer class="footer bg-primary text-white py-3 mt-5">
     <div class="container-fluid d-flex justify-content-between">
         <p class="mb-0">
             © @DateTime.Now.Year ECommerce Store
         </p>
-        <a href="/about" class="text-white text-decoration-none">
+        <a href="/about" class="footer-link">
             @localizer["FooterLinkAbout"]
         </a>
     </div>

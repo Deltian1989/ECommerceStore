@@ -124,3 +124,12 @@ h1:focus {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
     text-align: start;
 }
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration:none;
+}
+
+    .footer-link:focus, .footer-link:hover {
+        color: rgba(255, 255, 255, 0.75);
+    }
