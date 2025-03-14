@@ -34,7 +34,7 @@
                             <img src="@product.ImagePath" class="card-img-top product-image" alt="@product.Name">
                             <div class="card-body text-center">
                                 <h5 class="card-title">@product.Name</h5>
-                                <p class="card-text">@string.Format(localizer["ProductCardCaptionPrice"].Value.Replace("{price}", product.UnitPrice.ToString("C")))</p>
+                                <p class="card-text">@string.Format(localizer["ProductCardCaptionPrice"].Value.Replace("{price}", product.UnitPrice.ToString()))</p>
                             </div>
                         </a>
                     </div>
