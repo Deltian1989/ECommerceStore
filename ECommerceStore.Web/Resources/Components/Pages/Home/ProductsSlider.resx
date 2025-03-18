@@ -118,15 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ProductCardCaptionPrice" xml:space="preserve">
-    <value>Cena: {price} PLN</value>
-  </data>
-  <data name="ProductSliderTitleFeaturedProducts" xml:space="preserve">
-    <value>Ostatnio dodane</value>
-  </data>
-  <data name="ProductsLoadingStatusLoadingProducts" xml:space="preserve">
-    <value>Wczytywanie produktów...</value>
-  </data>
-  <data name="ProductsLoadingStatusNoFeaturedProductsAvailable" xml:space="preserve">
-    <value>Brak nowo dodanych produktów.</value>
+    <value>ProductCardCaptionPrice</value>
   </data>
 </root>

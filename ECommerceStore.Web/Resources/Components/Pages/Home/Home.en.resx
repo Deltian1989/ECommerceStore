@@ -117,16 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ProductCardCaptionPrice" xml:space="preserve">
-    <value>ProductCardCaptionPrice</value>
+  <data name="FeaturedProductSliderTitle" xml:space="preserve">
+    <value>Featured products</value>
   </data>
-  <data name="ProductSliderTitleFeaturedProducts" xml:space="preserve">
-    <value>ProductSliderTitleFeaturedProducts</value>
-  </data>
-  <data name="ProductsLoadingStatusLoadingProducts" xml:space="preserve">
-    <value>ProductsLoadingStatusLoadingProducts</value>
+  <data name="ProductsLoadingStatusLoadingFeaturedProducts" xml:space="preserve">
+    <value>Loading products...</value>
   </data>
   <data name="ProductsLoadingStatusNoFeaturedProductsAvailable" xml:space="preserve">
-    <value>ProductsLoadingStatusNoFeaturedProductsAvailable</value>
+    <value>No featured products available.</value>
   </data>
 </root>

@@ -120,13 +120,4 @@
   <data name="ProductCardCaptionPrice" xml:space="preserve">
     <value>Price: {price} PLN</value>
   </data>
-  <data name="ProductSliderTitleFeaturedProducts" xml:space="preserve">
-    <value>Featured products</value>
-  </data>
-  <data name="ProductsLoadingStatusLoadingProducts" xml:space="preserve">
-    <value>Loading products...</value>
-  </data>
-  <data name="ProductsLoadingStatusNoFeaturedProductsAvailable" xml:space="preserve">
-    <value>No featured products available.</value>
-  </data>
 </root>

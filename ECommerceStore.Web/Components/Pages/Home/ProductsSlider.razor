@@ -1,5 +1,5 @@
 ﻿@using System.Globalization
-@inject IStringLocalizer<FeaturedProductsSlider> localizer
+@inject IStringLocalizer<ProductsSlider> localizer
 
 @inject HttpClient httpClient
 @inject IJSRuntime JSRuntime
@@ -9,7 +9,7 @@
     @if (isLoading)
     {
 
-        <h2>@localizer["ProductsLoadingStatusLoadingProducts"]</h2>
+        <h2>@LoadingProductsCaption</h2>
         <br />
         <br />
         <div class="progress">
@@ -18,12 +18,12 @@
     }
     else if (featuredProducts.Count == 0)
     {
-        <p>@localizer["ProductsLoadingStatusNoFeaturedProductsAvailable"]</p>
+        <p>@ProductsAvailabilityStatus</p>
     }
     else
     {
 
-        <h2>@localizer["ProductSliderTitleFeaturedProducts"]</h2>
+        <h2>@SliderTitle</h2>
         <br />
         <div class="swiper-container featured-products-slider">
             <div class="swiper-wrapper">
@@ -50,6 +50,15 @@
 </div>
 
 @code {
+    [Parameter]
+    public string SliderTitle { get; set; }
+
+    [Parameter]
+    public string LoadingProductsCaption { get; set; }
+
+    [Parameter]
+    public string ProductsAvailabilityStatus { get; set; }
+
     private List<ProductModel> featuredProducts = new();
     private bool isLoading = true;
     private bool isInitialized = false;
