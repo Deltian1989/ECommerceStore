@@ -13,5 +13,7 @@
         public decimal UnitPrice { get; set; }
 
         public int Amount { get; set; }
+
+        public DateTime? AddedDate { get; set; }
     }
 }
