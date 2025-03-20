@@ -18,9 +18,9 @@ namespace ECommerceStore.Infrastructure.Services
 
         public async Task<IReadOnlyList<FeaturedProductDto>> GetFeaturedProducts()
         {
-            var dateTimeLastTwoWeeks = DateTime.Now.AddDays(14);
+            var dateTimeLastTwoWeeks = DateTime.Now.AddDays(-14);
 
-            var productEntities = await _repository.GetAsync<Product>(p => p.AddedDate >= dateTimeLastTwoWeeks,0,8);
+            var productEntities = await _repository.GetAsync<Product>(p => p.AddedDate >= dateTimeLastTwoWeeks,0,14);
 
             var featuredProducts = _mapper.Map<IReadOnlyList<FeaturedProductDto>>(productEntities);
 
