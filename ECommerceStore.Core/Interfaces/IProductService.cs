@@ -5,5 +5,7 @@ namespace ECommerceStore.Core.Interfaces
     public interface IProductService
     {
         Task<IReadOnlyList<FeaturedProductDto>> GetFeaturedProducts();
+
+        Task<IReadOnlyList<DiscountedProductDto>> GetDiscountedProducts();
     }
 }

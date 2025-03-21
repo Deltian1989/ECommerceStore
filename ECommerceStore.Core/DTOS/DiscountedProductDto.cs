@@ -1,6 +1,6 @@
 ﻿namespace ECommerceStore.Core.DTOS
 {
-    public class FeaturedProductDto
+    public class DiscountedProductDto
     {
         public int Id { get; set; }
 

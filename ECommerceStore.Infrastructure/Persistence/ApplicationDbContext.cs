@@ -38,6 +38,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         UnitPrice = 1400,
                         ImagePath = "/productImages/tvset.jpg",
                         AddedDate = DateTime.Now,
+                        Discount=0.1m
                     },
                     new Product
                     {
@@ -48,6 +49,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         UnitPrice = 289,
                         ImagePath = "/productImages/marioswitch.jpg",
                         AddedDate = DateTime.Now,
+                        Discount=0.2m
                     },
                     new Product
                     {
@@ -58,6 +60,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         UnitPrice = 1700,
                         ImagePath = "/productImages/playstation5.jpg",
                         AddedDate = DateTime.Now,
+                        Discount=0.3m
                     },
                     new Product
                     {
@@ -68,6 +71,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         UnitPrice = 110,
                         ImagePath = "/productImages/minecraft.jpg",
                         AddedDate = DateTime.Now,
+                        Discount=0.1m
                     },
                     new Product
                     {
@@ -148,6 +152,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         ImagePath = "https://upload.wikimedia.org/wikipedia/en/d/d2/Back_to_the_Future.jpg",
                         UnitPrice = 59m,
                         AddedDate = DateTime.Now,
+                        Discount=0.1m
                     },
                     new Product
                     {
@@ -158,6 +163,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         ImagePath = "https://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg",
                         UnitPrice = 50m,
                         AddedDate = DateTime.Now,
+                        Discount=0.1m
 
                     },
                     new Product
@@ -179,6 +185,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         ImagePath = "https://upload.wikimedia.org/wikipedia/en/d/d5/Diablo_II_Coverart.png",
                         UnitPrice = 45m,
                         AddedDate = DateTime.Now,
+                        Discount=0.2m
                     },
                     new Product
                     {
@@ -189,6 +196,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         ImagePath = "https://upload.wikimedia.org/wikipedia/en/7/79/Day_of_the_Tentacle_artwork.jpg",
                         UnitPrice = 75m,
                         AddedDate = DateTime.Now,
+                        Discount=0.2m
                     },
                     new Product
                     {
@@ -199,6 +207,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         ImagePath = "https://upload.wikimedia.org/wikipedia/commons/4/43/Xbox-console.jpg",
                         UnitPrice = 1500m,
                         AddedDate = DateTime.Now,
+                        Discount=0.2m
                     },
                     new Product
                     {
@@ -209,6 +218,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         ImagePath = "https://upload.wikimedia.org/wikipedia/commons/e/ee/Nintendo-Super-Famicom-Set-FL.jpg",
                         UnitPrice = 600m,
                         AddedDate = DateTime.Now,
+                        Discount=0.3m
                     }
              };
 
@@ -228,7 +238,15 @@ namespace ECommerceStore.Infrastructure.Persistence
                 }
                 else
                 {
-                    context.Set<Product>().Update(product);
+                    productEntity.AddedDate = product.AddedDate;
+                    productEntity.Discount = product.Discount;
+                    productEntity.Name = product.Name;
+                    productEntity.Description = product.Description;
+                    productEntity.ImagePath = product.ImagePath;
+                    productEntity.UnitPrice = product.UnitPrice;
+                    productEntity.Amount = product.Amount;
+
+                    context.Set<Product>().Update(productEntity);
                 }
 
                 context.SaveChanges();

@@ -23,8 +23,21 @@ builder.Services.AddProblemDetails();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-builder.Services.AddAutoMapper(config =>
+builder.Services.AddAutoMapper(config => {
     config.CreateMap<Product, FeaturedProductDto>()
+        .AfterMap((s, d) => {
+            d.DiscountPercentage = (int)(s.Discount * 100);
+            d.PriceWithDiscount = s.UnitPrice - s.UnitPrice * s.Discount;
+        });
+    config.CreateMap<Product, DiscountedProductDto>()
+    .ForMember(d => d.DiscountPercentage, config => config.Ignore())
+    .ForMember(d => d.PriceWithDiscount, config => config.Ignore())
+    .AfterMap((s, d) => {
+        d.DiscountPercentage = (int)(s.Discount * 100);
+        d.PriceWithDiscount = s.UnitPrice - s.UnitPrice * s.Discount;
+    }
+    );
+} 
 );
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();

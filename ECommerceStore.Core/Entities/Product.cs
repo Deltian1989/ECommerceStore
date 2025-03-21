@@ -12,6 +12,8 @@
 
         public decimal UnitPrice { get; set; }
 
+        public decimal Discount { get; set; }
+
         public int Amount { get; set; }
 
         public DateTime? AddedDate { get; set; }
