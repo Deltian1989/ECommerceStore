@@ -120,6 +120,9 @@
   <data name="FeaturedProductSliderTitle" xml:space="preserve">
     <value>ProductSliderTitleFeaturedProducts</value>
   </data>
+  <data name="ProductCardCaptionPrice" xml:space="preserve">
+    <value>ProductCardCaptionPrice</value>
+  </data>
   <data name="ProductsLoadingStatusLoadingFeaturedProducts" xml:space="preserve">
     <value>ProductsLoadingStatusLoadingProducts</value>
   </data>

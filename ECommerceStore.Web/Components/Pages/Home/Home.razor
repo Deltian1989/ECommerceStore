@@ -1,8 +1,7 @@
 ﻿@page "/"
 @inject IStringLocalizer<Home> localizer
 
-<ProductsSlider LoadingProductsCaption="@localizer["ProductsLoadingStatusLoadingFeaturedProducts"]"
+<_FeaturedProductsSlider LoadingProductsCaption="@localizer["ProductsLoadingStatusLoadingFeaturedProducts"]"
                 SliderTitle="@localizer["FeaturedProductSliderTitle"]"
                 ProductsAvailabilityStatus="@localizer["ProductsLoadingStatusNoFeaturedProductsAvailable"]">
-            <_FeaturedProductSlides></_FeaturedProductSlides>
-            </ProductsSlider>
+            </_FeaturedProductsSlider>

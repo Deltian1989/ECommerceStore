@@ -1,0 +1,94 @@
+﻿@using System.Globalization
+@inject IStringLocalizer<Home> localizer
+@inject HttpClient httpClient
+@inject IJSRuntime JSRuntime
+@inject IConfiguration Configuration
+
+<div class="featured-products-panel bg-light">
+    @if (isLoading)
+    {
+
+        <h2>@LoadingProductsCaption</h2>
+        <br />
+        <br />
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+        </div>
+    }
+    else if (products.Count == 0)
+    {
+        <p>@ProductsAvailabilityStatus</p>
+    }
+    else
+    {
+
+        <h2>@SliderTitle</h2>
+        <br />
+        <div class="swiper-container featured-products-slider">
+            <div class="swiper-wrapper">
+                @foreach (var product in products)
+                {
+                    <_FeaturedProductSlide @product="@product" @ProductCardCaptionPrice="@localizer["ProductCardCaptionPrice"]"></_FeaturedProductSlide>
+                }
+            </div>
+            <!-- Swiper navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <!-- Swiper pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    }
+</div>
+
+@code {
+    [Parameter]
+    public string SliderTitle { get; set; }
+
+    [Parameter]
+    public string LoadingProductsCaption { get; set; }
+
+    [Parameter]
+    public string ProductsAvailabilityStatus { get; set; }
+
+    private List<FeaturedProductModel> products = new();
+
+    private bool isLoading = true;
+    private bool isInitialized = false;
+    private string? apiBaseUrl;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        apiBaseUrl = Configuration["ApiBaseUrl"];
+
+        if (string.IsNullOrEmpty(apiBaseUrl))
+        {
+            Console.WriteLine("API Base URL is not configured.");
+            return;
+        }
+
+        try
+        {
+            products = await httpClient.GetFromJsonAsync<List<FeaturedProductModel>>($"{apiBaseUrl}/api/products/featured");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching products: {ex.Message}");
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!isInitialized && !isLoading)
+        {
+            isInitialized = true; // Prevent multiple calls
+            await JSRuntime.InvokeVoidAsync("App.Pages.HomePage.init");
+        }
+    }
+}
+

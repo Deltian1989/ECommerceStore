@@ -1,0 +1,22 @@
+﻿@inject HttpClient httpClient
+@inject IJSRuntime JSRuntime
+@inject IConfiguration Configuration
+
+
+<div class="swiper-slide" @key="product.Id">
+    <a href="/products?productId=@(product.Id)" class="product-card">
+        <img src="@product.ImagePath" class="card-img-top product-image" alt="@product.Name">
+        <div class="card-body text-center">
+            <h5 class="card-title">@product.Name</h5>
+            <p class="card-text">@string.Format(ProductCardCaptionPrice.Replace("{price}", product.UnitPrice.ToString()))</p>
+        </div>
+    </a>
+</div>
+
+@code {
+    [Parameter]
+    public string ProductCardCaptionPrice { get; set; }
+
+    [Parameter]
+    public DiscountedProductModel product { get; set; }
+}
