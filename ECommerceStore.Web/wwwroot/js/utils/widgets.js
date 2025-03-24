@@ -1,17 +1,17 @@
 ﻿
+App.Utils.Widgets.productSwipers = {};
+
 App.Utils.Widgets.createProductSwiper = function (productSwiperId) {
 
-    if (this.productSwiper) {
-        this.productSwiper.destroy(true, true); // Destroy existing instance before reinitializing
+    if (this.productSwipers[productSwiperId] === undefined) {
+        this.productSwipers[productSwiperId] = new Swiper('.' + productSwiperId, {
+            slidesPerView: 9,
+            freeMode: true,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
+        });
     }
-
-    this.productSwiper = new Swiper('.' + productSwiperId, {
-        slidesPerView: 9,
-        freeMode: true,
-        spaceBetween: 10,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-        },
-    });
 }

@@ -1,0 +1,43 @@
+﻿@inject HttpClient httpClient
+@inject IJSRuntime JSRuntime
+@inject IConfiguration Configuration
+
+
+<div class="swiper-slide" @key="Product.Id">
+    <a href="/products?productId=@(Product.Id)" class="product-card">
+        <img src="@Product.ImagePath" class="card-img-top product-image" alt="@Product.Name">
+        <div class="card-body text-center">
+            <h5 class="card-title">@Product.Name</h5>
+            <p class="card-text">
+                @if (Product.DiscountPercentage == 0)
+                {
+                <p class="card-text">@string.Format(ProductCardCaptionPrice.Replace("{price}", Product.UnitPrice.ToString()))</p>
+                }
+                else
+                {
+                    <p class="card-text">
+                        @((MarkupString)string.Format(ProductCardCaptionPriceWithDiscountPercentageHtml
+                            .Replace("{basePrice}", Product.UnitPrice.ToString())
+                            .Replace("{discountPercentage}", Product.DiscountPercentage.ToString())))
+                        <br />
+                    <span class="text-success">@string.Format(ProductCardCaptionDiscountedPrice.Replace("{price}", Product.PriceWithDiscount.ToString()))</span>
+                    </p>
+                }
+            </p>
+        </div>
+    </a>
+</div>
+
+@code {
+    [Parameter]
+    public DiscountedProductModel Product { get; set; }
+
+    [Parameter]
+    public string ProductCardCaptionPrice { get; set; }
+
+    [Parameter]
+    public string ProductCardCaptionPriceWithDiscountPercentageHtml { get; set; }
+
+    [Parameter]
+    public string ProductCardCaptionDiscountedPrice { get; set; }
+}

@@ -69,12 +69,12 @@ h1:focus {
         content: "An error has occurred."
     }
 
-.featured-products-panel {
+.products-panel {
     min-height: 180px;
     padding: 20px;
 }
 
-    .featured-products-panel h2 {
+    .products-panel h2 {
         color: var(--bs-card-title-color);
     }
 
@@ -91,7 +91,7 @@ h1:focus {
     height: 100%;
 }
 
-.featured-products-slider {
+.products-slider {
     overflow: hidden;
 }
 
@@ -114,6 +114,10 @@ h1:focus {
     object-fit: contain; /* Ensures images fill the area without distortion */
     width: 100%;
     display: block;
+}
+
+.price-strike-through {
+    text-decoration: line-through;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {

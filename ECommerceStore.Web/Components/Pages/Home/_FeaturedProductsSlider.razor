@@ -4,7 +4,7 @@
 @inject IJSRuntime JSRuntime
 @inject IConfiguration Configuration
 
-<div class="featured-products-panel bg-light">
+<div class="featured-products-panel products-panel bg-light">
     @if (isLoading)
     {
 
@@ -24,11 +24,15 @@
 
         <h2>@SliderTitle</h2>
         <br />
-        <div class="swiper-container featured-products-slider">
+        <div class="swiper-container products-slider featured-products-slider">
             <div class="swiper-wrapper">
                 @foreach (var product in products)
                 {
-                    <_FeaturedProductSlide @product="@product" @ProductCardCaptionPrice="@localizer["ProductCardCaptionPrice"]"></_FeaturedProductSlide>
+                    <_FeaturedProductCard Product="@product"
+                        ProductCardCaptionPrice="@localizer["ProductCardCaptionPrice"]"
+                        ProductCardCaptionPriceWithDiscountPercentageHtml="@localizer["ProductCardCaptionPriceWithDiscountPercentageHtml"]"
+                        ProductCardCaptionDiscountedPrice="@localizer["ProductCardCaptionDiscountedPrice"]">
+                    </_FeaturedProductCard>
                 }
             </div>
             <!-- Swiper navigation buttons -->
@@ -41,6 +45,8 @@
 </div>
 
 @code {
+    private List<FeaturedProductModel> products = new();
+
     [Parameter]
     public string SliderTitle { get; set; }
 
@@ -49,8 +55,6 @@
 
     [Parameter]
     public string ProductsAvailabilityStatus { get; set; }
-
-    private List<FeaturedProductModel> products = new();
 
     private bool isLoading = true;
     private bool isInitialized = false;
