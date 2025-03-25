@@ -1,4 +1,5 @@
 ﻿using ECommerceStore.Core.Interfaces;
+using ECommerceStore.Core.Utils;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerceStore.ApiService.Controllers
@@ -14,18 +15,10 @@ namespace ECommerceStore.ApiService.Controllers
             _productService = productService;
         }
 
-        [HttpGet("featured")]
-        public async Task<IActionResult> GetFeaturedProducts()
+        [HttpGet()]
+        public async Task<IActionResult> GetProducts(ProductSliderCategory productSliderCategory = ProductSliderCategory.None)
         {
-            var products = await _productService.GetFeaturedProducts();
-
-            return Ok(products);
-        }
-
-        [HttpGet("discounted")]
-        public async Task<IActionResult> GetDiscountedProducts()
-        {
-            var products = await _productService.GetDiscountedProducts();
+            var products = await _productService.GetProducts(productSliderCategory);
 
             return Ok(products);
         }

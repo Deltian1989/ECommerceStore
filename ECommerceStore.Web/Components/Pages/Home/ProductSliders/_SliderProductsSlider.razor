@@ -1,10 +1,11 @@
 ﻿@using System.Globalization
+@using ECommerceStore.Web.Core
 @inject IStringLocalizer<Home> localizer
 @inject HttpClient httpClient
 @inject IJSRuntime JSRuntime
 @inject IConfiguration Configuration
 
-<div class="featured-products-panel products-panel bg-light">
+<div class="products-panel bg-light">
     @if (isLoading)
     {
 
@@ -24,15 +25,15 @@
 
         <h2>@SliderTitle</h2>
         <br />
-        <div class="swiper-container products-slider featured-products-slider">
+        <div id="@ProductSliderCategory.ToString()" class="swiper-container products-slider">
             <div class="swiper-wrapper">
                 @foreach (var product in products)
                 {
-                    <_FeaturedProductCard Product="@product"
+                    <_SliderProductCard Product="@product"
                         ProductCardCaptionPrice="@localizer["ProductCardCaptionPrice"]"
                         ProductCardCaptionPriceWithDiscountPercentageHtml="@localizer["ProductCardCaptionPriceWithDiscountPercentageHtml"]"
                         ProductCardCaptionDiscountedPrice="@localizer["ProductCardCaptionDiscountedPrice"]">
-                    </_FeaturedProductCard>
+                    </_SliderProductCard>
                 }
             </div>
             <!-- Swiper navigation buttons -->
@@ -45,7 +46,10 @@
 </div>
 
 @code {
-    private List<FeaturedProductModel> products = new();
+    private List<SliderProductModel> products = new();
+
+    [Parameter]
+    public ProductSliderCategory ProductSliderCategory { get; set; }
 
     [Parameter]
     public string SliderTitle { get; set; }
@@ -74,7 +78,7 @@
 
         try
         {
-            products = await httpClient.GetFromJsonAsync<List<FeaturedProductModel>>($"{apiBaseUrl}/api/products/featured");
+            products = await httpClient.GetFromJsonAsync<List<SliderProductModel>>($"{apiBaseUrl}/api/products?productSliderCategory=" + ProductSliderCategory);
         }
         catch (Exception ex)
         {

@@ -24,17 +24,12 @@ builder.Services.AddProblemDetails();
 builder.Services.AddOpenApi();
 
 builder.Services.AddAutoMapper(config => {
-    config.CreateMap<Product, FeaturedProductDto>()
-        .AfterMap((s, d) => {
-            d.DiscountPercentage = (int)(s.Discount * 100);
-            d.PriceWithDiscount = s.UnitPrice - s.UnitPrice * s.Discount;
-        });
-    config.CreateMap<Product, DiscountedProductDto>()
+    config.CreateMap<Product, ProductDto>()
     .ForMember(d => d.DiscountPercentage, config => config.Ignore())
     .ForMember(d => d.PriceWithDiscount, config => config.Ignore())
     .AfterMap((s, d) => {
         d.DiscountPercentage = (int)(s.Discount * 100);
-        d.PriceWithDiscount = s.UnitPrice - s.UnitPrice * s.Discount;
+        d.PriceWithDiscount = Math.Round(s.UnitPrice - s.UnitPrice * s.Discount, 2, MidpointRounding.ToZero);
     }
     );
 } 

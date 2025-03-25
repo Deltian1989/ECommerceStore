@@ -1,14 +1,18 @@
-﻿@page "/"
+﻿@using ECommerceStore.Web.Components.Pages.Home.ProductSliders
+@using ECommerceStore.Web.Core
+@page "/"
 @inject IStringLocalizer<Home> localizer
 
-<_FeaturedProductsSlider LoadingProductsCaption="@localizer["ProductsLoadingStatusLoadingFeaturedProducts"]"
+<_SliderProductsSlider ProductSliderCategory="ProductSliderCategory.FeaturedProducts"
+    LoadingProductsCaption="@localizer["ProductsLoadingStatusLoadingProducts"]"
                 SliderTitle="@localizer["FeaturedProductSliderTitle"]"
-                ProductsAvailabilityStatus="@localizer["ProductsLoadingStatusNoFeaturedProductsAvailable"]">
-            </_FeaturedProductsSlider>
+                         ProductsAvailabilityStatus="@localizer["ProductsLoadingStatusNoProductsAvailable"]">
+            </_SliderProductsSlider>
 
 <br />
 
-<_DiscountedProductsSlider LoadingProductsCaption="@localizer["ProductsLoadingStatusLoadingFeaturedProducts"]"
-                         SliderTitle="@localizer["FeaturedProductSliderTitle"]"
-                         ProductsAvailabilityStatus="@localizer["ProductsLoadingStatusNoFeaturedProductsAvailable"]">
-</_DiscountedProductsSlider>
+<_SliderProductsSlider ProductSliderCategory="ProductSliderCategory.DiscountedProducts"
+    LoadingProductsCaption="@localizer["ProductsLoadingStatusLoadingProducts"]"
+                           SliderTitle="@localizer["DiscountedProductSliderTitle"]"
+                           ProductsAvailabilityStatus="@localizer["ProductsLoadingStatusNoProductsAvailable"]">
+</_SliderProductsSlider>

@@ -129,10 +129,13 @@
   <data name="ProductCardCaptionPriceWithDiscountPercentageHtml" xml:space="preserve">
     <value>Price: &lt;span class="price-strike-through"&gt;{basePrice} PLN&lt;/span&gt; (-{discountPercentage}%)</value>
   </data>
-  <data name="ProductsLoadingStatusLoadingFeaturedProducts" xml:space="preserve">
+  <data name="DiscountedProductSliderTitle" xml:space="preserve">
+    <value>Discounts</value>
+  </data>
+  <data name="ProductsLoadingStatusLoadingProducts" xml:space="preserve">
     <value>ProductsLoadingStatusLoadingProducts</value>
   </data>
-  <data name="ProductsLoadingStatusNoFeaturedProductsAvailable" xml:space="preserve">
+  <data name="ProductsLoadingStatusNoProductsAvailable" xml:space="preserve">
     <value>ProductsLoadingStatusNoFeaturedProductsAvailable</value>
   </data>
 </root>

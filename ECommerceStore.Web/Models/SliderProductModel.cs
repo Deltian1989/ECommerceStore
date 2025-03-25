@@ -1,6 +1,6 @@
 ﻿namespace ECommerceStore.Web.Models
 {
-    public class DiscountedProductModel
+    public class SliderProductModel
     {
         public int Id { get; set; }
         public string Name { get; set; }
