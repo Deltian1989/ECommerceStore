@@ -38,6 +38,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         UnitPrice = 1400,
                         ImagePath = "/productImages/tvset.jpg",
                         AddedDate = DateTime.Now,
+                        PopularityScore=7,
                         Discount=0.1m
                     },
                     new Product
@@ -49,6 +50,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         UnitPrice = 289,
                         ImagePath = "/productImages/marioswitch.jpg",
                         AddedDate = DateTime.Now,
+                        PopularityScore=9,
                         Discount=0.2m
                     },
                     new Product
@@ -59,6 +61,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         Description = "The latest generation of the Playstation consoles available in marketplace",
                         UnitPrice = 1700,
                         ImagePath = "/productImages/playstation5.jpg",
+                        PopularityScore=12,
                         AddedDate = DateTime.Now,
                         Discount=0.3m
                     },
@@ -69,6 +72,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         Amount = 200,
                         Description = "Classic Minecraft Java Edition (PC only)",
                         UnitPrice = 110,
+                        PopularityScore=11,
                         ImagePath = "/productImages/minecraft.jpg",
                         AddedDate = DateTime.Now,
                         Discount=0.1m
@@ -81,6 +85,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         Description = "Captain Jack Sparrow (Johnny Depp) sets sail for a fifth effects-filled swashbuckler, now on a quest for the Trident of Poseidon and the ultimate power it can bestow. However, he'll have to outrace young Henry Turner (Brenton Thwaites), who's looking to free father Will (Orlando Bloom) from the Flying Dutchman's curse... and outpace the vengeance hunt of the undead Captain Salazar (Javier Bardem). Geoffrey Rush, Kaya Scodelario, and Keira Knightley co-star.",
                         ImagePath = "https://m.media-amazon.com/images/I/81aLSDXBZqL._AC_SY606_.jpg",
                         UnitPrice = 39.99m,
+                        PopularityScore=8,
                         AddedDate = DateTime.Now,
                     },
                     new Product
@@ -91,6 +96,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         Description = "This is a must have for every Might and Magic series fan! Includes Heroes of Might & Magic III and its expansions: Armageddon's Blade and The Shadow of Death. Insanely addictive gameplay that will make you want to play “just one more turn” over and over again great multiplayer, especially when playing in hot seat mode on one PC",
                         ImagePath = "https://i.ebayimg.com/images/g/0pcAAOSw3~diWWLL/s-l1600.jpg",
                         UnitPrice = 35m,
+                        PopularityScore=6,
                         AddedDate = DateTime.Now,
                     },
                     new Product
@@ -101,6 +107,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         Description = "This is the original vintage gaming system from the 1980's. It comes with brand new accessories, which makes you feel like you are playing it for the first time again! Please note that this is NOT the \"Classic\" edition that has pre-loaded games, you will have to use old school game cartridges in this system (not included) like its 1989.",
                         ImagePath = "https://i.ebayimg.com/images/g/AD4AAOSw3YphYRwA/s-l1600.jpg",
                         UnitPrice = 170m,
+                        PopularityScore=6,
                         AddedDate = DateTime.Now,
                     },
                     new Product
@@ -111,6 +118,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         Description = "The Hitchhiker's Guide to the Galaxy[note 1] (sometimes referred to as HG2G,[1] HHGTTG,[2] H2G2,[3] or tHGttG) is a comedy science fiction franchise created by Douglas Adams. Originally a 1978 radio comedy broadcast on BBC Radio 4, it was later adapted to other formats, including stage shows, novels, comic books, a 1981 TV series, a 1984 text-based computer game, and 2005 feature film.",
                         ImagePath = "https://upload.wikimedia.org/wikipedia/en/b/bd/H2G2_UK_front_cover.jpg",
                         UnitPrice = 80m,
+                        PopularityScore=5,
                         AddedDate = DateTime.Now,
                     },
                     new Product
@@ -121,6 +129,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         Description = "Ready Player One is a 2011 science fiction novel, and the debut novel of American author Ernest Cline. The story, set in a dystopia in 2045, follows protagonist Wade Watts on his search for an Easter egg in a worldwide virtual reality game, the discovery of which would lead him to inherit the game creator's fortune. Cline sold the rights to publish the novel in June 2010, in a bidding war to the Crown Publishing Group (a division of Random House).[1] The book was published on August 16, 2011.[2] An audiobook was released the same day; it was narrated by Wil Wheaton, who was mentioned briefly in one of the chapters.[3][4]Ch. 20 In 2012, the book received an Alex Award from the Young Adult Library Services Association division of the American Library Association[5] and won the 2011 Prometheus Award.[6]",
                         ImagePath = "https://upload.wikimedia.org/wikipedia/en/a/a4/Ready_Player_One_cover.jpg",
                         UnitPrice = 80m,
+                        PopularityScore=4.5f,
                         AddedDate = DateTime.Now,
                     },
                     new Product
@@ -131,6 +140,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         Description = "Nineteen Eighty-Four (also stylised as 1984) is a dystopian social science fiction novel and cautionary tale written by English writer George Orwell. It was published on 8 June 1949 by Secker & Warburg as Orwell's ninth and final book completed in his lifetime. Thematically, it centres on the consequences of totalitarianism, mass surveillance and repressive regimentation of people and behaviours within society.[2][3] Orwell, a democratic socialist, modelled the totalitarian government in the novel after Stalinist Russia and Nazi Germany.[2][3][4] More broadly, the novel examines the role of truth and facts within politics and the ways in which they are manipulated.",
                         ImagePath = "https://upload.wikimedia.org/wikipedia/commons/c/c3/1984first.jpg",
                         UnitPrice = 69m,
+                        PopularityScore=4f,
                         AddedDate = DateTime.Now,
                     },
                     new Product
@@ -141,6 +151,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         Description = "The Matrix is a 1999 science fiction action film written and directed by the Wachowskis, and produced by Joel Silver. Starring Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving, and Joe Pantoliano, and as the first installment in the Matrix franchise, it depicts a dystopian future in which humanity is unknowingly trapped inside a simulated reality, the Matrix, which intelligent machines have created to distract humans while using their bodies as an energy source. When computer programmer Thomas Anderson, under the hacker alias \"Neo\", uncovers the truth, he \"is drawn into a rebellion against the machines\" along with other people who have been freed from the Matrix.",
                         ImagePath = "https://upload.wikimedia.org/wikipedia/en/c/c1/The_Matrix_Poster.jpg",
                         UnitPrice = 60m,
+                        PopularityScore=6,
                         AddedDate = DateTime.Now,
                     },
                     new Product
@@ -151,6 +162,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         Description = "Back to the Future is a 1985 American science fiction film directed by Robert Zemeckis. Written by Zemeckis and Bob Gale, it stars Michael J. Fox, Christopher Lloyd, Lea Thompson, Crispin Glover, and Thomas F. Wilson. Set in 1985, the story follows Marty McFly (Fox), a teenager accidentally sent back to 1955 in a time-traveling DeLorean automobile built by his eccentric scientist friend Doctor Emmett \"Doc\" Brown (Lloyd). Trapped in the past, Marty inadvertently prevents his future parents' meeting—threatening his very existence—and is forced to reconcile the pair and somehow get back to the future.",
                         ImagePath = "https://upload.wikimedia.org/wikipedia/en/d/d2/Back_to_the_Future.jpg",
                         UnitPrice = 59m,
+                        PopularityScore=6,
                         AddedDate = DateTime.Now,
                         Discount=0.1m
                     },
@@ -162,6 +174,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         Description = "Toy Story is a 1995 American computer-animated comedy film produced by Pixar Animation Studios and released by Walt Disney Pictures. The first installment in the Toy Story franchise, it was the first entirely computer-animated feature film, as well as the first feature film from Pixar. The film was directed by John Lasseter (in his feature directorial debut), and written by Joss Whedon, Andrew Stanton, Joel Cohen, and Alec Sokolow from a story by Lasseter, Stanton, Pete Docter, and Joe Ranft. The film features music by Randy Newman, was produced by Bonnie Arnold and Ralph Guggenheim, and was executive-produced by Steve Jobs and Edwin Catmull. The film features the voices of Tom Hanks, Tim Allen, Don Rickles, Wallace Shawn, John Ratzenberger, Jim Varney, Annie Potts, R. Lee Ermey, John Morris, Laurie Metcalf, and Erik von Detten. Taking place in a world where anthropomorphic toys come to life when humans are not present, the plot focuses on the relationship between an old-fashioned pull-string cowboy doll named Woody and an astronaut action figure, Buzz Lightyear, as they evolve from rivals competing for the affections of their owner, Andy Davis, to friends who work together to be reunited with Andy after being separated from him.",
                         ImagePath = "https://upload.wikimedia.org/wikipedia/en/1/13/Toy_Story.jpg",
                         UnitPrice = 50m,
+                        PopularityScore=6.5f,
                         AddedDate = DateTime.Now,
                         Discount=0.1m
 
@@ -174,6 +187,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         Description = "Half-Life 2 is a 2004 first-person shooter game developed and published by Valve. Like the original Half-Life, it combines shooting, puzzles, and storytelling, and adds features such as vehicles and physics-based gameplay.",
                         ImagePath = "https://upload.wikimedia.org/wikipedia/en/2/25/Half-Life_2_cover.jpg",
                         UnitPrice = 64m,
+                        PopularityScore=5.5f,
                         AddedDate = DateTime.Now,
                     },
                     new Product
@@ -185,6 +199,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         ImagePath = "https://upload.wikimedia.org/wikipedia/en/d/d5/Diablo_II_Coverart.png",
                         UnitPrice = 45m,
                         AddedDate = DateTime.Now,
+                        PopularityScore=8.5f,
                         Discount=0.2m
                     },
                     new Product
@@ -196,6 +211,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         ImagePath = "https://upload.wikimedia.org/wikipedia/en/7/79/Day_of_the_Tentacle_artwork.jpg",
                         UnitPrice = 75m,
                         AddedDate = DateTime.Now,
+                        PopularityScore=3.5f,
                         Discount=0.2m
                     },
                     new Product
@@ -207,6 +223,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         ImagePath = "https://upload.wikimedia.org/wikipedia/commons/4/43/Xbox-console.jpg",
                         UnitPrice = 1500m,
                         AddedDate = DateTime.Now,
+                        PopularityScore=8f,
                         Discount=0.2m
                     },
                     new Product
@@ -218,6 +235,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                         ImagePath = "https://upload.wikimedia.org/wikipedia/commons/e/ee/Nintendo-Super-Famicom-Set-FL.jpg",
                         UnitPrice = 600m,
                         AddedDate = DateTime.Now,
+                        PopularityScore=6.5f,
                         Discount=0.3m
                     }
              };

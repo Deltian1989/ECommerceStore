@@ -14,6 +14,8 @@
 
         public decimal Discount { get; set; }
 
+        public float? PopularityScore { get; set; }
+
         public int Amount { get; set; }
 
         public DateTime? AddedDate { get; set; }

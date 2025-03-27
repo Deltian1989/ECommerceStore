@@ -95,7 +95,7 @@
         if (!isInitialized && !isLoading)
         {
             isInitialized = true; // Prevent multiple calls
-            await JSRuntime.InvokeVoidAsync("App.Pages.HomePage.init");
+            await JSRuntime.InvokeVoidAsync("App.Pages.HomePage.initSlider", ProductSliderCategory.ToString());
         }
     }
 }

@@ -31,6 +31,10 @@ namespace ECommerceStore.Infrastructure.Services
             {
                 productEntities = await _repository.GetAsync<Product>(p => p.Discount > 0, 0, 14);
             }
+            else if (productSliderCategory == ProductSliderCategory.PopularProducts)
+            {
+                productEntities = await _repository.GetAsync<Product>(p => p.Discount > 0, 0, 14);
+            }
             else
             {
                 var dateTimeLastMonth = DateTime.Now.AddMonths(-1);

@@ -4,6 +4,7 @@
     {
         None = 0,
         FeaturedProducts = 1,
-        DiscountedProducts = 2
+        DiscountedProducts = 2,
+        PopularProducts = 3
     }
 }
