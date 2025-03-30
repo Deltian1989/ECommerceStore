@@ -3,16 +3,18 @@
 @page "/"
 @inject IStringLocalizer<Home> localizer
 
-<_SliderProductsSlider ProductSliderCategory="ProductSliderCategory.FeaturedProducts"
-    LoadingProductsCaption="@localizer["ProductsLoadingStatusLoadingProducts"]"
-                SliderTitle="@localizer["FeaturedProductSliderTitle"]"
-                         ProductsAvailabilityStatus="@localizer["ProductsLoadingStatusNoProductsAvailable"]">
+<_SliderProductsSlider ProductSliderCategory="@ProductSliderCategory.FeaturedProducts"
+                SliderTitle="@localizer["FeaturedProductSliderTitle"]">
             </_SliderProductsSlider>
 
 <br />
 
-<_SliderProductsSlider ProductSliderCategory="ProductSliderCategory.DiscountedProducts"
-    LoadingProductsCaption="@localizer["ProductsLoadingStatusLoadingProducts"]"
-                           SliderTitle="@localizer["DiscountedProductSliderTitle"]"
-                           ProductsAvailabilityStatus="@localizer["ProductsLoadingStatusNoProductsAvailable"]">
+<_SliderProductsSlider ProductSliderCategory="@ProductSliderCategory.PopularProducts"
+                       SliderTitle="@localizer["PopularProductSliderTitle"]">
+</_SliderProductsSlider>
+
+<br />
+
+<_SliderProductsSlider ProductSliderCategory="@ProductSliderCategory.DiscountedProducts"
+                           SliderTitle="@localizer["DiscountedProductSliderTitle"]">
 </_SliderProductsSlider>

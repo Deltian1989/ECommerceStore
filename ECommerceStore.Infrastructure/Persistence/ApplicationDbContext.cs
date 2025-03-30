@@ -263,6 +263,7 @@ namespace ECommerceStore.Infrastructure.Persistence
                     productEntity.ImagePath = product.ImagePath;
                     productEntity.UnitPrice = product.UnitPrice;
                     productEntity.Amount = product.Amount;
+                    productEntity.PopularityScore = product.PopularityScore;
 
                     context.Set<Product>().Update(productEntity);
                 }

@@ -9,7 +9,7 @@
     @if (isLoading)
     {
 
-        <h2>@LoadingProductsCaption</h2>
+        <h2>@localizer["ProductsLoadingStatusLoadingProducts"]</h2>
         <br />
         <br />
         <div class="progress">
@@ -18,7 +18,7 @@
     }
     else if (products.Count == 0)
     {
-        <p>@ProductsAvailabilityStatus</p>
+        <p>@localizer["ProductsLoadingStatusNoProductsAvailable"]</p>
     }
     else
     {
@@ -53,12 +53,6 @@
 
     [Parameter]
     public string SliderTitle { get; set; }
-
-    [Parameter]
-    public string LoadingProductsCaption { get; set; }
-
-    [Parameter]
-    public string ProductsAvailabilityStatus { get; set; }
 
     private bool isLoading = true;
     private bool isInitialized = false;

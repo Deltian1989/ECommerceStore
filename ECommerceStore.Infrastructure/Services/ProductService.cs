@@ -33,7 +33,7 @@ namespace ECommerceStore.Infrastructure.Services
             }
             else if (productSliderCategory == ProductSliderCategory.PopularProducts)
             {
-                productEntities = await _repository.GetAsync<Product>(p => p.Discount > 0, 0, 14);
+                productEntities = await _repository.GetAsync<Product>(p => p.PopularityScore >= 6, 0, 14);
             }
             else
             {
