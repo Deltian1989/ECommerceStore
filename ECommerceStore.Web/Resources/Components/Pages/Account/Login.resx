@@ -118,18 +118,18 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="LoginFormLabelPassword" xml:space="preserve">
-    <value>LoginFormLabelPassword</value>
+    <value>Password</value>
   </data>
   <data name="LoginFormLabelRememberMe" xml:space="preserve">
-    <value>LoginFormLabelRememberMe</value>
+    <value>Remember me</value>
   </data>
   <data name="LoginFormLabelUsername" xml:space="preserve">
-    <value>LoginFormLabelUsername</value>
+    <value>Username</value>
   </data>
   <data name="LoginFormSubmitButtonLogin" xml:space="preserve">
-    <value>LoginFormSubmitButtonLogin</value>
+    <value>Login</value>
   </data>
   <data name="LoginPageLinkBackToHomePage" xml:space="preserve">
-    <value>LoginPageLinkBackToHomePage</value>
+    <value>Back to the home page</value>
   </data>
 </root>

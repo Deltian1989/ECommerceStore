@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="FeaturedProductSliderTitle" xml:space="preserve">
-    <value>ProductSliderTitleFeaturedProducts</value>
+    <value>Featured products</value>
   </data>
   <data name="ProductCardCaptionDiscountedPrice" xml:space="preserve">
     <value>{price} PLN</value>
   </data>
   <data name="ProductCardCaptionPrice" xml:space="preserve">
-    <value>ProductCardCaptionPrice</value>
+    <value>Price: {price} PLN</value>
   </data>
   <data name="ProductCardCaptionPriceWithDiscountPercentageHtml" xml:space="preserve">
     <value>Price: &lt;span class="price-strike-through"&gt;{basePrice} PLN&lt;/span&gt; (-{discountPercentage}%)</value>
@@ -133,10 +133,10 @@
     <value>Discounts</value>
   </data>
   <data name="ProductsLoadingStatusLoadingProducts" xml:space="preserve">
-    <value>ProductsLoadingStatusLoadingProducts</value>
+    <value>Loading products...</value>
   </data>
   <data name="ProductsLoadingStatusNoProductsAvailable" xml:space="preserve">
-    <value>ProductsLoadingStatusNoFeaturedProductsAvailable</value>
+    <value>No products available.</value>
   </data>
   <data name="PopularProductSliderTitle" xml:space="preserve">
     <value>Popular products</value>
