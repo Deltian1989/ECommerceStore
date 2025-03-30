@@ -29,10 +29,7 @@
             <div class="swiper-wrapper">
                 @foreach (var product in products)
                 {
-                    <_SliderProductCard Product="@product"
-                        ProductCardCaptionPrice="@localizer["ProductCardCaptionPrice"]"
-                        ProductCardCaptionPriceWithDiscountPercentageHtml="@localizer["ProductCardCaptionPriceWithDiscountPercentageHtml"]"
-                        ProductCardCaptionDiscountedPrice="@localizer["ProductCardCaptionDiscountedPrice"]">
+                    <_SliderProductCard Product="@product">
                     </_SliderProductCard>
                 }
             </div>

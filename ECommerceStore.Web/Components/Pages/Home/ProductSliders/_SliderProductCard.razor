@@ -1,6 +1,7 @@
 ﻿@inject HttpClient httpClient
 @inject IJSRuntime JSRuntime
 @inject IConfiguration Configuration
+@inject IStringLocalizer<Home> localizer
 
 
 <div class="swiper-slide" @key="Product.Id">
@@ -10,15 +11,15 @@
             <h5 class="card-title">@Product.Name</h5>
             @if (Product.DiscountPercentage == 0)
             {
-                <p class="card-text">@string.Format(ProductCardCaptionPrice.Replace("{price}", Product.UnitPrice.ToString()))</p>
+                <p class="card-text">@string.Format(localizer["ProductCardCaptionPrice"].Value.Replace("{price}", Product.UnitPrice.ToString()))</p>
             }
             else{
                 <p class="card-text">
-                    @((MarkupString)string.Format(ProductCardCaptionPriceWithDiscountPercentageHtml
+                    @((MarkupString)string.Format(@localizer["ProductCardCaptionPriceWithDiscountPercentageHtml"].Value
                         .Replace("{basePrice}", Product.UnitPrice.ToString())
                              .Replace("{discountPercentage}", Product.DiscountPercentage.ToString())))
                     <br />
-                    <span class="text-success">@string.Format(ProductCardCaptionDiscountedPrice.Replace("{price}", Product.PriceWithDiscount.ToString()))</span>
+                    <span class="text-success">@string.Format(localizer["ProductCardCaptionDiscountedPrice"].Value.Replace("{price}", Product.PriceWithDiscount.ToString()))</span>
                 </p>
             }
         </div>
@@ -28,13 +29,4 @@
 @code {
     [Parameter]
     public SliderProductModel Product { get; set; }
-
-    [Parameter]
-    public string ProductCardCaptionPrice { get; set; }
-
-    [Parameter]
-    public string ProductCardCaptionPriceWithDiscountPercentageHtml { get; set; }
-
-    [Parameter]
-    public string ProductCardCaptionDiscountedPrice { get; set; }
 }
