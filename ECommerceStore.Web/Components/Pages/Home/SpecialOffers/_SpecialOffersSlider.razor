@@ -1,0 +1,61 @@
+﻿@using ECommerceStore.Web.Components.Pages.Home.SpecialOffers.SpecialOffersSlides
+@inject IJSRuntime JSRuntime
+
+<div id="specialOffersSlider" class="swiper special-offers-slider">
+    <div class="swiper-wrapper">
+        @foreach (var slideComponent in slideComponentsToRender)
+        {
+            <DynamicComponent Type="slideComponent"></DynamicComponent>
+        }
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+</div>
+
+@code {
+    private List<Type> slideComponentTypes = new List<Type>
+    {
+        typeof(_GamersAreWelcome),
+        typeof(_KitchenUtilities),
+        typeof(_ShoppingForBusiness),
+        typeof(_SomethingForTechnologyFreaks)
+    };
+
+
+    private List<Type> slideComponentsToRender = new List<Type>();
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        var remainingSlideComponents = slideComponentTypes;
+
+        slideComponentsToRender.Add(typeof(_SpecialOfferForYou));
+        slideComponentsToRender.Add(typeof(_SpringSales));
+
+        var maxCount = 3;
+
+        if (slideComponentTypes.Count < maxCount){
+            throw new Exception("At least 3 additional special offer slides must be added.");
+        }
+
+        for (int i = 0; i < maxCount; i++)
+        {
+            var remainingCount = remainingSlideComponents.Count;
+
+            var index = Random.Shared.Next(0, remainingCount);
+
+            var slideComponent = remainingSlideComponents[index];
+
+            slideComponentsToRender.Add(slideComponent);
+
+            remainingSlideComponents.RemoveAt(index);
+        }
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await JSRuntime.InvokeVoidAsync("App.Pages.HomePage.initSpecialOffersSlider");
+    }
+}

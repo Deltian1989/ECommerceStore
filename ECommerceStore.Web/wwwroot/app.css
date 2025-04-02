@@ -73,11 +73,19 @@ h1:focus {
     height: 400px;
 }
 
-    .special-offers-slider > .swiper-wrapper > .swiper-slide > div {
+    .special-offers-slider > .swiper-wrapper > .swiper-slide > .raw,
+    .special-offers-slider > .swiper-wrapper > .swiper-slide > .raw > div {
         height: 100%;
     }
 
-    .products-panel {
+    .special-offers-slider > .swiper-wrapper > .swiper-slide .special-offer-column-title-box {
+        position: relative;
+        top: 35%;
+        text-align: center;
+        color: #fff;
+    }
+
+.products-panel {
     min-height: 180px;
     padding: 20px;
 }
@@ -112,7 +120,7 @@ h1:focus {
     position: relative;
 }
 
-.swiper-slide {
+.products-slider .swiper-slide {
     border: 1px solid var(--bs-border-color-translucent);
     border-radius: 15px;
 }
@@ -144,7 +152,7 @@ h1:focus {
 
 .footer-link {
     color: rgba(255, 255, 255, 0.55);
-    text-decoration:none;
+    text-decoration: none;
 }
 
     .footer-link:focus, .footer-link:hover {

@@ -141,4 +141,10 @@
   <data name="PopularProductSliderTitle" xml:space="preserve">
     <value>Popularne</value>
   </data>
+  <data name="SpecialOfferSlideChosenOffersTitle" xml:space="preserve">
+    <value>Wybrane oferty</value>
+  </data>
+  <data name="SpecialOfferSlideJustForYouTitle" xml:space="preserve">
+    <value>Specjalnie dla Ciebie</value>
+  </data>
 </root>
